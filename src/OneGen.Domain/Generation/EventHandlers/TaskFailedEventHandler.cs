@@ -5,7 +5,7 @@ using T = System.Threading.Tasks;
 
 namespace OneGen.Generation.EventHandlers
 {
-	internal class TaskFailedEventHandler(
+	public class TaskFailedEventHandler(
 		GenerationManager generationManager
 		)
 		: ILocalEventHandler<TaskFailedEvent>, ITransientDependency

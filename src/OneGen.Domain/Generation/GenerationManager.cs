@@ -6,7 +6,7 @@ using T = System.Threading.Tasks;
 
 namespace OneGen.Generation
 {
-	internal class GenerationManager(
+	public class GenerationManager(
 		IGuidGenerator guidGenerator,
 		IRepository<Task> taskRepository,
 		IRepository<Variant> variantRepository,
@@ -56,7 +56,7 @@ namespace OneGen.Generation
 			foreach (var v in value)
 			{
 				var id = guidGenerator.Create();
-				var variant = new Variant(id, task.SubjectId, task.Id, v);
+				var variant = new Variant(id, task.Id, v);
 				await variantRepository.InsertAsync(variant, true);
 			}
 		}

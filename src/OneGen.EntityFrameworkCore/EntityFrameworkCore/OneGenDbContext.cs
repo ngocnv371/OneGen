@@ -89,20 +89,19 @@ public class OneGenDbContext :
 			b.ToTable(OneGenConsts.DbTablePrefix + "Subjects", OneGenConsts.GenerationSchema);
 			b.ConfigureByConvention();
 		});
-		builder.Entity<Variant>(b =>
-		{
-			b.ToTable(OneGenConsts.DbTablePrefix + "Variants", OneGenConsts.GenerationSchema);
-			b.ConfigureByConvention();
-
-			b.HasOne<Subject>().WithMany().HasForeignKey(u => u.SubjectId).IsRequired();
-			b.HasOne<Task>().WithMany().HasForeignKey(u => u.TaskId).IsRequired();
-		});
 		builder.Entity<Task>(b =>
 		{
 			b.ToTable(OneGenConsts.DbTablePrefix + "Tasks", OneGenConsts.GenerationSchema);
 			b.ConfigureByConvention();
 
 			b.HasOne<Subject>().WithMany().HasForeignKey(u => u.SubjectId).IsRequired();
+		});
+		builder.Entity<Variant>(b =>
+		{
+			b.ToTable(OneGenConsts.DbTablePrefix + "Variants", OneGenConsts.GenerationSchema);
+			b.ConfigureByConvention();
+
+			b.HasOne<Task>().WithMany().HasForeignKey(u => u.TaskId).IsRequired();
 		});
 	}
 }

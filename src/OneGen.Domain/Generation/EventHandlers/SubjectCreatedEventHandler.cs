@@ -5,7 +5,7 @@ using T = System.Threading.Tasks;
 
 namespace OneGen.Generation.EventHandlers
 {
-	internal class SubjectCreatedEventHandler(
+	public class SubjectCreatedEventHandler(
 		GenerationManager generationManager
 		)
 		: ILocalEventHandler<EntityCreatedEventData<Subject>>, ITransientDependency
