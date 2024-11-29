@@ -1,0 +1,101 @@
+{
+  "template": "app",
+  "imports": {
+    "Volo.Abp.LeptonXLiteTheme": {
+      "version": "4.0.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.Account": {
+      "version": "9.0.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict": {
+      "version": "9.0.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.Identity": {
+      "version": "9.0.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.TenantManagement": {
+      "version": "9.0.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.0.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.0.0",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.0.0",
+      "isInstalled": true
+    }
+  },
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "OneGen.Application": {
+      "path": "src/OneGen.Application/OneGen.Application.abppkg",
+      "folder": "src"
+    },
+    "OneGen.Application.Tests": {
+      "path": "test/OneGen.Application.Tests/OneGen.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "OneGen.Domain.Shared": {
+      "path": "src/OneGen.Domain.Shared/OneGen.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "OneGen.Application.Contracts": {
+      "path": "src/OneGen.Application.Contracts/OneGen.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "OneGen.HttpApi": {
+      "path": "src/OneGen.HttpApi/OneGen.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "OneGen.HttpApi.Client": {
+      "path": "src/OneGen.HttpApi.Client/OneGen.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "OneGen.EntityFrameworkCore.Tests": {
+      "path": "test/OneGen.EntityFrameworkCore.Tests/OneGen.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "OneGen.EntityFrameworkCore": {
+      "path": "src/OneGen.EntityFrameworkCore/OneGen.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "OneGen.TestBase": {
+      "path": "test/OneGen.TestBase/OneGen.TestBase.abppkg",
+      "folder": "test"
+    },
+    "OneGen.Domain.Tests": {
+      "path": "test/OneGen.Domain.Tests/OneGen.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "OneGen.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/OneGen.HttpApi.Client.ConsoleTestApp/OneGen.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "OneGen.DbMigrator": {
+      "path": "src/OneGen.DbMigrator/OneGen.DbMigrator.abppkg",
+      "folder": "src"
+    },
+    "OneGen.HttpApi.Host": {
+      "path": "src/OneGen.HttpApi.Host/OneGen.HttpApi.Host.abppkg",
+      "folder": "src"
+    },
+    "OneGen.Domain": {
+      "path": "src/OneGen.Domain/OneGen.Domain.abppkg",
+      "folder": "src"
+    }
+  }
+}
