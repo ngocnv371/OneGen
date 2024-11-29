@@ -21,24 +21,24 @@ namespace OneGen.Generation
 			Status = GenerationStatus.Pending;
 		}
 
-		public Task SetStatus(GenerationStatus status)
+		public Task SetStarted()
 		{
-			switch (status)
-			{
-				case GenerationStatus.Processing:
-					AddLocalEvent(new TaskStartedEvent(this));
-					break;
+			Status = GenerationStatus.Processing;
+			AddLocalEvent(new TaskStartedEvent(this));
+			return this;
+		}
 
-				case GenerationStatus.Completed:
-					AddLocalEvent(new TaskCompletedEvent(this));
-					break;
+		public Task SetFailed()
+		{
+			Status = GenerationStatus.Failed;
+			AddLocalEvent(new TaskFailedEvent(this));
+			return this;
+		}
 
-				case GenerationStatus.Failed:
-					AddLocalEvent(new TaskFailedEvent(this));
-					break;
-			}
-
-			Status = status;
+		public Task SetCompleted(string[] value)
+		{
+			Status = GenerationStatus.Completed;
+			AddLocalEvent(new TaskCompletedEvent(this, value));
 			return this;
 		}
 	}
