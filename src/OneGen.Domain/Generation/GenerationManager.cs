@@ -1,4 +1,6 @@
-﻿using Volo.Abp;
+﻿using OneGen.Generation.Jobs;
+using Volo.Abp;
+using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Domain.Services;
 using Volo.Abp.Guids;
@@ -8,6 +10,7 @@ namespace OneGen.Generation
 {
 	public class GenerationManager(
 		IGuidGenerator guidGenerator,
+			IBackgroundJobManager backgroundJobManager,
 		IRepository<Task> taskRepository,
 		IRepository<Variant> variantRepository,
 		IRepository<Subject> subjectRepository
@@ -32,6 +35,26 @@ namespace OneGen.Generation
 		/// <returns></returns>
 		public async T.Task ScheduleJob(Task task)
 		{
+			var subject = await subjectRepository.GetAsync(s => s.Id == task.SubjectId);
+			if (subject == null)
+			{
+				throw new SubjectNotFoundException(task.SubjectId);
+			}
+
+			switch (subject.Type)
+			{
+				case SubjectType.Text:
+					await backgroundJobManager.EnqueueAsync(new GenerateTextArgs(task.TenantId, task.Id));
+					break;
+
+				case SubjectType.Image:
+					await backgroundJobManager.EnqueueAsync(new GenerateImageArgs(task.TenantId, task.Id));
+					break;
+
+				case SubjectType.Audio:
+					await backgroundJobManager.EnqueueAsync(new GenerateAudioArgs(task.TenantId, task.Id));
+					break;
+			}
 		}
 
 		/// <summary>
