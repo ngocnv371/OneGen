@@ -1,0 +1,35 @@
+<abp-modal [(visible)]="isModalOpen" [options]="{ windowClass: 'subject-form-modal' }">
+  <ng-template #abpHeader>
+    <h3 *ngIf="!selectedItem.id">{{ '::NewSubject' | abpLocalization }}</h3>
+    <h3 *ngIf="selectedItem.id">
+      {{ '::Edit' | abpLocalization }}
+      {{ selectedItem.number }}
+    </h3>
+  </ng-template>
+
+  <ng-template #abpBody>
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="mt-2">
+        <label for="operation">{{ '::Operation' | abpLocalization }}</label>
+        <input id="operation" class="form-control" formControlName="operation" />
+      </div>
+
+      <div class="mt-2">
+        <label for="prompt">{{ '::Prompt' | abpLocalization }}</label>
+        <textarea id="prompt" class="form-control" formControlName="prompt"></textarea>
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template #abpFooter>
+    <button
+      id="btn-save-subject"
+      class="btn btn-primary"
+      (click)="save()"
+      [disabled]="form.invalid || isSaving"
+    >
+      <i class="fa fa-check mr-1"></i>
+      {{ '::Save' | abpLocalization }}
+    </button>
+  </ng-template>
+</abp-modal>
