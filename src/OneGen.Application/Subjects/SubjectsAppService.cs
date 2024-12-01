@@ -5,7 +5,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 
-namespace OneGen
+namespace OneGen.Subjects
 {
 	public class SubjectsAppService
 		: CrudAppService<Subject, SubjectDto, Guid, PagedAndSortedResultRequestDto, CreateSubjectDto>,

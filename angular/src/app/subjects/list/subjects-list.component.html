@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col col-md-6">
         <h5 class="card-title">
-          {{ '::Menu:SubjectsList' | abpLocalization }}
+          {{ '::Menu:Subjects' | abpLocalization }}
         </h5>
       </div>
       <div class="text-end col col-md-6">
@@ -41,6 +41,11 @@
       prop="prompt"
       cellClass="text-truncate"
     ></ngx-datatable-column>
+    <ngx-datatable-column [name]="'::Status' | abpLocalization" prop="status" [maxWidth]="150">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{ '::Enum:GenerationStatus.' + row.status | abpLocalization }}
+      </ng-template>
+    </ngx-datatable-column>
     <ngx-datatable-column
       [name]="'::CreationTime' | abpLocalization"
       prop="creationTime"

@@ -21,6 +21,7 @@ function configureRoutes(routes: RoutesService) {
         iconClass: 'fas fa-book',
         order: 50,
         layout: eLayoutType.application,
+        requiredPolicy: 'OneGen.Subjects',
       },
     ]);
   };

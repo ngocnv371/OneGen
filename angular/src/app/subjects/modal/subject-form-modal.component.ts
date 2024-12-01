@@ -41,6 +41,9 @@ export class SubjectFormModalComponent {
   buildForm() {
     this.isSaving = false;
     this.form = this.fb.group({
+      objectType: 'test',
+      // use random object
+      objectId: 'ec30009f-a768-43c1-922a-cc1527dd9549',
       operation: [''],
       prompt: ['', Validators.required],
     });

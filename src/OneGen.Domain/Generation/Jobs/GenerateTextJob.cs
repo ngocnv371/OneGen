@@ -53,15 +53,21 @@ namespace OneGen.Generation.Jobs
 		{
 			var url = configuration["OpenAI:ApiUrl"];
 			var key = configuration["OpenAI:ApiKey"];
+			var model = configuration["OpenAI:Model"];
+
 			var api = new OpenAI.OpenAIClient(new System.ClientModel.ApiKeyCredential(key), new OpenAI.OpenAIClientOptions
 			{
-				Endpoint = new Uri(url)
+				Endpoint = new Uri(url),
 			});
 
-			var client = api.GetChatClient("");
+			var client = api.GetChatClient(model);
 			var message = new OpenAI.Chat.UserChatMessage(subject.Prompt);
 			// one shot
 			var result = await client.CompleteChatAsync(message);
+			if (result.Value.Id.IsNullOrEmpty())
+			{
+				throw new Exception("OpenAI request failed");
+			}
 
 			var text = result.Value.Content[0].Text;
 			return text;

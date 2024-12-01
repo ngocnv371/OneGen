@@ -1,6 +1,17 @@
 {
   "Culture": "en",
   "Texts": {
+    "Permission:Subjects": "Subjects",
+    "Permission:Subjects.Create": "Creating new subjects",
+    "Permission:Subjects.Edit": "Editing the subjects",
+    "Permission:Subjects.Delete": "Deleting the subjects",
+    "Menu:Subjects": "Subjects",
+    "NewSubject": "New Subject",
+    "Enum:GenerationStatus.0": "Pending",
+    "Enum:GenerationStatus.1": "Started",
+    "Enum:GenerationStatus.2": "Completed",
+    "Enum:GenerationStatus.3": "Failed",
+
     "AppName": "OneGen",
     "Menu:Home": "Home",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information visit",
