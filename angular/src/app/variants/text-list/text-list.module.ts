@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 
-import { VariantsListComponent } from './variants-list.component';
+import { VariantsTextListComponent } from './text-list.component';
 import { SharedModule } from '../../shared/shared.module';
 import { VariantTextCardModule } from '../text-card/variant-text-card.module';
 
 @NgModule({
-  declarations: [VariantsListComponent],
+  declarations: [VariantsTextListComponent],
   imports: [SharedModule, VariantTextCardModule],
-  exports: [VariantsListComponent],
+  exports: [VariantsTextListComponent],
 })
-export class VariantsListModule {}
+export class VariantsTextListModule {}

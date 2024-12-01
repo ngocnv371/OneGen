@@ -1,0 +1,8 @@
+<div class="card" [attr.data-variant-id]="variant.id">
+  <div class="card-body break-spaces">
+    {{ variant.value }}
+  </div>
+  <div class="card-footer">
+    <span class="text-muted"> Created on {{ variant.creationTime | shortDateTime }} </span>
+  </div>
+</div>

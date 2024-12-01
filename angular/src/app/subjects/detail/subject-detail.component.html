@@ -50,7 +50,10 @@
         </div>
       </div>
     </div>
-    <app-variants-list [subjectId]="item.id"></app-variants-list>
+    <app-variants-text-list
+      *ngIf="item.type === SubjectType.Text"
+      [subjectId]="item.id"
+    ></app-variants-text-list>
   </div>
 </app-detail-layout>
 
