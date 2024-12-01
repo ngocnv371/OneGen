@@ -6,6 +6,7 @@
     "Permission:Subjects.Edit": "Editing the subjects",
     "Permission:Subjects.Delete": "Deleting the subjects",
     "Menu:Subjects": "Subjects",
+    "Menu:Variants": "Variants",
     "NewSubject": "New Subject",
     "Enum:GenerationStatus.0": "Pending",
     "Enum:GenerationStatus.1": "Started",
@@ -14,6 +15,7 @@
 
     "AppName": "OneGen",
     "Menu:Home": "Home",
+    "AreYouSureToDelete": "Are you sure to delete this item?",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information visit",
     "Welcome": "Welcome"
   }

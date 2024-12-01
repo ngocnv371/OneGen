@@ -1,5 +1,5 @@
 import type { SubjectType } from './subject-type.enum';
-import type { CreationAuditedEntityDto } from '@abp/ng.core';
+import type { CreationAuditedEntityDto, PagedAndSortedResultRequestDto } from '@abp/ng.core';
 import type { GenerationStatus } from './generation-status.enum';
 
 export interface CreateSubjectDto {
@@ -18,4 +18,14 @@ export interface SubjectDto extends CreationAuditedEntityDto<string> {
   objectId?: string;
   operation?: string;
   prompt?: string;
+}
+
+export interface VariantDto extends CreationAuditedEntityDto<string> {
+  tenantId?: string;
+  taskId?: string;
+  value?: string;
+}
+
+export interface VariantQueryDto extends PagedAndSortedResultRequestDto {
+  subjectId?: string;
 }
