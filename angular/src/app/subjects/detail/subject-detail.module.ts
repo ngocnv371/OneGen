@@ -6,6 +6,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { SubjectFormModalModule } from '../modal/subject-form-modal.module';
 import { VariantsListModule } from '../../variants/list/variants-list.module';
 import { VariantsTextListModule } from 'src/app/variants/text-list/text-list.module';
+import { VariantsAudioListModule } from '../../variants/audio-list/audio-list.module';
 
 @NgModule({
   declarations: [SubjectDetailComponent],
@@ -15,6 +16,7 @@ import { VariantsTextListModule } from 'src/app/variants/text-list/text-list.mod
     SubjectFormModalModule,
     VariantsListModule,
     VariantsTextListModule,
+    VariantsAudioListModule,
   ],
 })
 export class SubjectDetailModule {}

@@ -1,0 +1,4 @@
+<h4>{{ 'Menu::Variants' | abpLocalization }}</h4>
+<div class="col" *ngFor="let item of page.items; trackBy: trackById">
+  <app-variant-audio-card [variant]="item"></app-variant-audio-card>
+</div>
