@@ -10,8 +10,25 @@
   <ng-template #abpBody>
     <form [formGroup]="form" (ngSubmit)="save()">
       <div class="mt-2">
+        <label for="objectType">{{ '::ObjectType' | abpLocalization }}</label>
+        <input id="objectType" class="form-control" formControlName="objectType" />
+      </div>
+      <div class="mt-2">
+        <label for="objectId">{{ '::ObjectId' | abpLocalization }}</label>
+        <input id="objectId" class="form-control" formControlName="objectId" />
+      </div>
+      <div class="mt-2">
         <label for="operation">{{ '::Operation' | abpLocalization }}</label>
         <input id="operation" class="form-control" formControlName="operation" />
+      </div>
+      <div class="mt-2">
+        <label for="type">Type</label><span> * </span>
+        <select class="form-control" id="type" formControlName="type">
+          <option [ngValue]="null">Select a type</option>
+          <option [ngValue]="type.value" *ngFor="let type of subjectTypeOptions">
+            {{ '::Enum:SubjectType.' + type.value | abpLocalization }}
+          </option>
+        </select>
       </div>
 
       <div class="mt-2">

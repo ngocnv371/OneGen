@@ -3,7 +3,7 @@ import { ConfirmationService, Confirmation } from '@abp/ng.theme.shared';
 import { Component, Input, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SubjectsService } from '@proxy';
-import { SubjectDto } from '@proxy/generation';
+import { SubjectDto, SubjectType, subjectTypeOptions } from '@proxy/generation';
 import { catchError, throwError } from 'rxjs';
 
 @Component({
@@ -16,6 +16,7 @@ export class SubjectFormModalComponent {
 
   selectedItem = {} as SubjectDto;
 
+  subjectTypeOptions = subjectTypeOptions;
   isModalOpen = false;
   isSaving = false;
 
@@ -42,9 +43,9 @@ export class SubjectFormModalComponent {
     this.isSaving = false;
     this.form = this.fb.group({
       objectType: 'test',
-      // use random object
       objectId: 'ec30009f-a768-43c1-922a-cc1527dd9549',
-      operation: [''],
+      operation: ['test'],
+      type: [SubjectType.Text],
       prompt: ['', Validators.required],
     });
   }
