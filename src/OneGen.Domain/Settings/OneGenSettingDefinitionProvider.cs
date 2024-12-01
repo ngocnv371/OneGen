@@ -4,9 +4,9 @@ namespace OneGen.Settings;
 
 public class OneGenSettingDefinitionProvider : SettingDefinitionProvider
 {
-    public override void Define(ISettingDefinitionContext context)
-    {
-        //Define your own settings here. Example:
-        //context.Add(new SettingDefinition(OneGenSettings.MySetting1));
-    }
+	public override void Define(ISettingDefinitionContext context)
+	{
+		context.Add(new SettingDefinition(OneGenSettings.Imaging.MaxHeight, "2048"));
+		context.Add(new SettingDefinition(OneGenSettings.Imaging.MaxWidth, "2048"));
+	}
 }

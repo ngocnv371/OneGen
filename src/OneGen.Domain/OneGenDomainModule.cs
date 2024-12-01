@@ -17,6 +17,7 @@ using Volo.Abp.Emailing;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.TenantManagement;
+using Volo.Abp.Imaging;
 
 namespace OneGen;
 
@@ -33,7 +34,8 @@ namespace OneGen;
 	typeof(AbpIdentityDomainModule),
 	typeof(AbpOpenIddictDomainModule),
 	typeof(AbpTenantManagementDomainModule),
-	typeof(BlobStoringDatabaseDomainModule)
+	typeof(BlobStoringDatabaseDomainModule),
+	typeof(AbpImagingAbstractionsModule)
 	)]
 public class OneGenDomainModule : AbpModule
 {

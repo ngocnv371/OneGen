@@ -22,7 +22,6 @@ export class VariantsListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.debug('shit');
     const streamCreator = query => this.service.getList({ subjectId: this.subjectId, ...query });
 
     this.list.hookToQuery(streamCreator).subscribe(response => {

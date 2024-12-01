@@ -2,8 +2,11 @@
 
 public static class OneGenSettings
 {
-    private const string Prefix = "OneGen";
+	private const string Prefix = "OneGen";
 
-    //Add your own setting names here. Example:
-    //public const string MySetting1 = Prefix + ".MySetting1";
+	public static class Imaging
+	{
+		public const string MaxWidth = Prefix + ".Imaging.MaxWidth";
+		public const string MaxHeight = Prefix + ".Imaging.MaxHeight";
+	}
 }

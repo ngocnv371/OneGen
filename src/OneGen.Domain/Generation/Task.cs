@@ -35,10 +35,10 @@ namespace OneGen.Generation
 			return this;
 		}
 
-		public Task SetCompleted(string[] value)
+		public Task SetCompleted(Subject subject, string[] value)
 		{
 			Status = GenerationStatus.Completed;
-			AddLocalEvent(new TaskCompletedEvent(this, value));
+			AddLocalEvent(new TaskCompletedEvent(this, subject, value));
 			return this;
 		}
 	}

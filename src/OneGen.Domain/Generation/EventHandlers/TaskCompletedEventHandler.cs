@@ -15,7 +15,7 @@ namespace OneGen.Generation.EventHandlers
 		public async T.Task HandleEventAsync(TaskCompletedEvent eventData)
 		{
 			await generationManager.UpdateSubjectStatus(eventData.Task);
-			await generationManager.CreateVariant(eventData.Task, eventData.Value);
+			await generationManager.CreateVariant(eventData.Task, eventData.Subject, eventData.Value);
 		}
 	}
 }

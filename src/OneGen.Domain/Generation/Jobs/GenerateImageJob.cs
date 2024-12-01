@@ -47,7 +47,7 @@ namespace OneGen.Generation.Jobs
 				try
 				{
 					var result = await Generate(subject, item);
-					item.SetCompleted(result);
+					item.SetCompleted(subject, result);
 					await repository.UpdateAsync(item, true);
 				}
 				catch (Exception)

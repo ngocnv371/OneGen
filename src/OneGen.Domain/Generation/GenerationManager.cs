@@ -1,5 +1,6 @@
 ﻿using OneGen.Generation.Jobs;
-using Volo.Abp;
+using OneGen.Storage;
+using System;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Domain.Services;
@@ -10,7 +11,8 @@ namespace OneGen.Generation
 {
 	public class GenerationManager(
 		IGuidGenerator guidGenerator,
-			IBackgroundJobManager backgroundJobManager,
+		IBackgroundJobManager backgroundJobManager,
+		StorageManager storageManager,
 		IRepository<Task> taskRepository,
 		IRepository<Variant> variantRepository,
 		IRepository<Subject> subjectRepository
@@ -74,12 +76,32 @@ namespace OneGen.Generation
 			await subjectRepository.UpdateAsync(subject, true);
 		}
 
-		public async T.Task CreateVariant(Task task, string[] value)
+		public static string ConvertSubjectTypeToExtension(SubjectType type)
+		{
+			return type switch
+			{
+				SubjectType.Audio => "wav",
+				SubjectType.Image => "png",
+				_ => string.Empty,
+			};
+		}
+
+		public async T.Task CreateVariant(Task task, Subject subject, string[] value)
 		{
 			foreach (var v in value)
 			{
 				var id = guidGenerator.Create();
-				var variant = new Variant(id, task.Id, v);
+				var ext = ConvertSubjectTypeToExtension(subject.Type);
+				Variant variant;
+				if (!ext.IsNullOrEmpty())
+				{
+					var path = await storageManager.UploadFileAsync(id, v, ext);
+					variant = new Variant(id, task.Id, path);
+				}
+				else
+				{
+					variant = new Variant(id, task.Id, v);
+				}
 				await variantRepository.InsertAsync(variant, true);
 			}
 		}

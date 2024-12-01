@@ -121,6 +121,12 @@ public class OneGenHttpApiHostModule : AbpModule
 		ConfigureVirtualFileSystem(context);
 		ConfigureCors(context, configuration);
 		ConfigureHangfire(context, configuration);
+		ConfigureHttpClient(context, configuration);
+	}
+
+	private void ConfigureHttpClient(ServiceConfigurationContext context, IConfiguration configuration)
+	{
+		context.Services.AddHttpClient();
 	}
 
 	private void ConfigureHangfire(ServiceConfigurationContext context, IConfiguration configuration)
