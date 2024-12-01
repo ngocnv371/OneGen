@@ -58,6 +58,10 @@
       *ngIf="item.type === SubjectType.Audio"
       [subjectId]="item.id"
     ></app-variants-audio-list>
+    <app-variants-image-list
+      *ngIf="item.type === SubjectType.Image"
+      [subjectId]="item.id"
+    ></app-variants-image-list>
   </div>
 </app-detail-layout>
 
