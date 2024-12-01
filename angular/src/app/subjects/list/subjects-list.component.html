@@ -25,6 +25,11 @@
   </div>
 
   <ngx-datatable [rows]="page.items" [count]="page.totalCount" [list]="list" default>
+    <ngx-datatable-column [name]="'::Type' | abpLocalization" prop="type" [maxWidth]="150">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{ '::Enum:SubjectType.' + row.type | abpLocalization }}
+      </ng-template>
+    </ngx-datatable-column>
     <ngx-datatable-column
       [name]="'::Operation' | abpLocalization"
       prop="operation"
