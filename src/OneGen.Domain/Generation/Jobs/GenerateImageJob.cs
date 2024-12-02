@@ -10,6 +10,7 @@ using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Guids;
 using Volo.Abp.MultiTenancy;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace OneGen.Generation.Jobs
 {
@@ -73,7 +74,10 @@ namespace OneGen.Generation.Jobs
 			var content = new StringContent(json, Encoding.UTF8, "application/json");
 			var result = await httpClient.PostAsync(url, content);
 			var text = await result.Content.ReadAsStringAsync();
-			var data = JsonSerializer.Deserialize<SDResponse>(text);
+			var data = JsonSerializer.Deserialize<SDResponse>(text, new JsonSerializerOptions
+			{
+				PropertyNameCaseInsensitive = true
+			});
 			return data.Images;
 		}
 	}

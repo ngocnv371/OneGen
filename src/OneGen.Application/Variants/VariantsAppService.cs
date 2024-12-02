@@ -12,7 +12,7 @@ namespace OneGen.Variants
 		: CrudAppService<Variant, VariantDto, Guid, VariantQueryDto>,
 		IVariantsAppService
 	{
-		private IRepository<Task, Guid> _taskRepository;
+		private readonly IRepository<Task, Guid> _taskRepository;
 
 		public VariantsAppService(
 			IRepository<Variant, Guid> repository,

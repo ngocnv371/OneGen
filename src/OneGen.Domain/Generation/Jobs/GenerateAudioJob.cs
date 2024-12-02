@@ -24,22 +24,17 @@ namespace OneGen.Generation.Jobs
 
 	internal class SunoOutput
 	{
-		[JsonPropertyName("audio_out")]
 		public string Audio_Out { get; set; }
 	}
 
 	internal class SunoResponse
 	{
-		[JsonPropertyName("output")]
 		public SunoOutput Output { get; set; }
 
-		[JsonPropertyName("started_at")]
 		public string Started_At { get; set; }
 
-		[JsonPropertyName("completed_at")]
 		public string Completed_At { get; set; }
 
-		[JsonPropertyName("status")]
 		public string Status { get; set; }
 	}
 
@@ -101,7 +96,10 @@ namespace OneGen.Generation.Jobs
 			var content = new StringContent(json, Encoding.UTF8, "application/json");
 			var result = await httpClient.PostAsync(url, content);
 			var text = await result.Content.ReadAsStringAsync();
-			var data = JsonSerializer.Deserialize<SunoResponse>(text);
+			var data = JsonSerializer.Deserialize<SunoResponse>(text, new JsonSerializerOptions
+			{
+				PropertyNameCaseInsensitive = true
+			});
 			var output = data.Output.Audio_Out;
 			var stripedPrefix = output.Split(",")[1];
 			return stripedPrefix;
