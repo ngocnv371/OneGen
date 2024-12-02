@@ -9,8 +9,9 @@
         <div class="row">
           <div class="col col-md-6">
             <h5 class="card-title">
-              {{ item.serial }}
+              {{ item.operation }}
             </h5>
+            <app-generation-status-badge [status]="item.status"></app-generation-status-badge>
           </div>
           <div class="text-end col col-md-6">
             <div class="text-lg-end pt-2">
@@ -34,11 +35,9 @@
         <div class="row">
           <div class="col-4">
             <small class="d-block mb-1">
-              {{ '::Operation' | abpLocalization }}
+              {{ '::Origin' | abpLocalization }}
             </small>
-            <h5 class="text-dark">
-              {{ item.operation }}
-            </h5>
+            <h5 class="text-dark">{{ item.objectType }} {{ item.objectId }}</h5>
           </div>
           <div class="col-12">
             <small class="d-block mb-1">
