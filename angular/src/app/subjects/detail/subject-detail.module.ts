@@ -8,9 +8,10 @@ import { VariantsListModule } from '../../variants/list/variants-list.module';
 import { VariantsTextListModule } from 'src/app/variants/text-list/text-list.module';
 import { VariantsAudioListModule } from '../../variants/audio-list/audio-list.module';
 import { VariantsImageListModule } from '../../variants/image-list/image-list.module';
+import { SubjectRegenerateButtonComponent } from './regenerate-button/regenerate-button.component';
 
 @NgModule({
-  declarations: [SubjectDetailComponent],
+  declarations: [SubjectDetailComponent, SubjectRegenerateButtonComponent],
   imports: [
     SharedModule,
     SubjectDetailRoutingModule,

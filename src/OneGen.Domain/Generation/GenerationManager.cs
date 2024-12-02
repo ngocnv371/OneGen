@@ -105,5 +105,21 @@ namespace OneGen.Generation
 				await variantRepository.InsertAsync(variant, true);
 			}
 		}
+
+		public async T.Task RegenerateAsync(Subject subject)
+		{
+			if (subject.Status == GenerationStatus.Processing)
+			{
+				throw new Exception("Subject is already in processing");
+			}
+
+			await CreateTask(subject);
+		}
+
+		public async T.Task RegenerateAsync(Guid subjectId)
+		{
+			var subject = await subjectRepository.GetAsync(r => r.Id == subjectId);
+			await RegenerateAsync(subject);
+		}
 	}
 }

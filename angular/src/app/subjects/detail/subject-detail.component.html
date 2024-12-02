@@ -14,6 +14,7 @@
           </div>
           <div class="text-end col col-md-6">
             <div class="text-lg-end pt-2">
+              <app-subject-regenerate-button [subjectId]="item.id"></app-subject-regenerate-button>
               <button
                 *abpPermission="'OneGen.Subjects.Edit'"
                 id="btn-edit-item"

@@ -44,6 +44,14 @@ export class SubjectsService {
     { apiName: this.apiName,...config });
   
 
+  regenerate = (id: string, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, void>({
+      method: 'POST',
+      url: `/api/app/subjects/${id}/regenerate`,
+    },
+    { apiName: this.apiName,...config });
+  
+
   update = (id: string, input: CreateSubjectDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, SubjectDto>({
       method: 'PUT',

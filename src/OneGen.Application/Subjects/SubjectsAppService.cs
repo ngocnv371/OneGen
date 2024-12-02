@@ -11,10 +11,22 @@ namespace OneGen.Subjects
 		: CrudAppService<Subject, SubjectDto, Guid, PagedAndSortedResultRequestDto, CreateSubjectDto>,
 		ISubjectsAppService
 	{
-		public SubjectsAppService(IRepository<Subject, Guid> repository)
+		private readonly GenerationManager _generationManager;
+
+		public SubjectsAppService(
+			IRepository<Subject, Guid> repository,
+			GenerationManager generationManager
+			)
 			: base(repository)
 		{
 			LocalizationResource = typeof(OneGenResource);
+
+			_generationManager = generationManager;
+		}
+
+		public System.Threading.Tasks.Task RegenerateAsync(Guid id)
+		{
+			return _generationManager.RegenerateAsync(id);
 		}
 	}
 }
